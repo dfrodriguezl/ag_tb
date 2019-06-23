@@ -1,0 +1,63 @@
+<!-- Here's the DIV that we inject the map into -->
+<!-- <div #mapViewNode></div> -->
+<div>
+    <!-- <p-selectButton  [(ngModel)]="indicadores" name="Map"></p-selectButton> -->
+    Región: <p-dropdown [options]="regiones" [style]="{'width':'150px'}" (onChange)="dt.filter($event.value, indicador.region, 'contains');PrintJson();" 
+    [filter]="true" [(ngModel)]="selectedRegion" appendTo="body">  </p-dropdown>
+    Región: <select name="region" id="region_"> 
+    </select>
+    <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto">
+    <!-- Departamento: <select name="departamento" id="departamento_"> 
+    </select>
+    Municipio: <select name="municipio" id="municipio_"> 
+    </select> -->
+    
+</div>
+
+
+<div class="tabla">
+  <!-- <p-selectButton  [(ngModel)]="indicadores" name="Map"></p-selectButton> -->
+    <p-table [value]="indicadores" [resizableColumns]="true" [globalFilterFields]="['INDICADOR']" #dt>
+      
+        <ng-template pTemplate="header" style="margin:100px 100px 100px 100px;">
+            <tr>
+                <th class="header" pResizableColumn style="width: 5%;">SIGLA</th>
+                <th class="header" pResizableColumn style="width: 30%;">INDICADOR</th>
+                <th class="header" pResizableColumn style="width: 10%;">HOJA METODOLÓGICA</th>
+                <th class="header" pResizableColumn style="width: 5%;">UNIDAD</th>
+                <th class="header" pResizableColumn style="width: 20%;">INTENSIDAD</th>
+                <th class="header" pResizableColumn style="width: 30%;">PERIODO I</th>
+                
+                
+            </tr>
+        </ng-template>
+        
+        <ng-template pTemplate="body" let-indicador>
+            
+            <tr class="gray">
+              <td>{{indicador.siglas}}</td>
+                <td><a [href]="indicador.url_dashboard" target="_blank">{{indicador.nombre}}</a></td>
+                <td> <a [href]="indicador.url_hoja_metodologica" target="_blank">{{indicador.siglas}}</a> </td>
+                <td>ha</td>
+                <td>   <div class="muy_baja linea"> <b>MUY BAJA:</b> </div> <br>
+                  <div class="baja linea"> <b> BAJA:</b> </div><br>
+                  <div class="media linea"> <b> MEDIA:</b> </div><br>
+                  <div class="alta linea"> <b> ALTA:</b> </div><br>
+                  <div class="muy_alta linea"> <b> MUY ALTA:</b> </div><br>
+                </td>
+                <td> <div class="center"><b>{{indicador.periodo}}</b></div> 
+                  <div class="right">{{indicador.muy_baja}} <br>
+                  {{indicador.baja}} <br>
+                  {{indicador.media}} <br>
+                  {{indicador.alta}} <br>
+                  {{indicador.muy_alta}} <br></div>
+                  
+                </td>
+                  
+                
+                <!-- <td>{{car.color}}</td> -->
+            </tr>
+        </ng-template>
+      </p-table>
+</div>
+

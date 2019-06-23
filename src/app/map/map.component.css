@@ -1,0 +1,87 @@
+/* import the required JSAPI css */
+@import 'https://js.arcgis.com/4.10/esri/css/main.css';
+
+::ng-deep .your-table .ui-datatable-scrollable-view .ui-datatable-scrollable-body {
+    min-height: 27vh;
+}
+
+body .ui-widget{
+    margin-top: 500px !important;
+}
+
+.ui-table{
+    /* width: 70% !important;
+    height: 70% !important; */
+    margin-top: 100px;
+}
+
+.esri-view {
+  height: 500px;
+}
+
+.center{
+    text-align: center;
+}
+
+.muy_baja{
+    color: #32AB00;
+}
+
+.baja{
+    /* background-color: green; */
+    color:#87D500;
+    width: 20vw;
+    height: 20vw;
+}
+
+.media{
+    color: #FFFF01;
+}
+
+.alta{
+    color: #FA8200;
+}
+
+.muy_alta{
+    color: #F80302;
+}
+
+.linea{
+    display: inline;
+}
+
+.gray{
+    background-color: #d6d6d6 !important;
+}
+
+.header{
+    background-color: #bf6830 !important;
+    color: white !important;
+}
+
+.tabla{
+    /* margin: 100px 100px 100px 100px !important;
+    padding: 100px 100px 100px 100px !important; */
+    margin-top: 200px;
+    margin-left: 150px;
+    margin-right: 150px;
+
+}
+
+td {
+    border-color: whitesmoke !important;
+
+}
+
+th {
+    border-color: whitesmoke !important;
+
+}
+
+.right{
+    text-align: right;
+}
+
+
+
+
