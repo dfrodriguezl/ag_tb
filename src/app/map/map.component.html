@@ -2,11 +2,11 @@
 <!-- <div #mapViewNode></div> -->
 <div>
     <!-- <p-selectButton  [(ngModel)]="indicadores" name="Map"></p-selectButton> -->
-    Región: <p-dropdown [options]="regiones" [style]="{'width':'150px'}" (onChange)="dt.filter($event.value, indicador.region, 'contains');PrintJson();" 
-    [filter]="true" [(ngModel)]="selectedRegion" appendTo="body">  </p-dropdown>
-    Región: <select name="region" id="region_"> 
+    <!-- Región: <p-dropdown [options]="regiones" [style]="{'width':'150px'}" (onChange)="dt.filter($event.value, indicador.region, 'contains');PrintJson();" 
+    [filter]="true" [(ngModel)]="selectedRegion" appendTo="body">  </p-dropdown> -->
+    <!-- Región: <select name="region" id="region_"> 
     </select>
-    <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto">
+    <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto"> -->
     <!-- Departamento: <select name="departamento" id="departamento_"> 
     </select>
     Municipio: <select name="municipio" id="municipio_"> 
@@ -17,7 +17,12 @@
 
 <div class="tabla">
   <!-- <p-selectButton  [(ngModel)]="indicadores" name="Map"></p-selectButton> -->
-    <p-table [value]="indicadores" [resizableColumns]="true" [globalFilterFields]="['INDICADOR']" #dt>
+    <p-table #dt [value]="indicadores" [resizableColumns]="true" [globalFilterFields]="['region']">
+        <ng-template pTemplate="caption">
+            Región:  <select name="region" id="region_" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto" class="ng-tns-c2-0 ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix"> 
+              </select>
+            <!-- <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto"> -->
+        </ng-template>
       
         <ng-template pTemplate="header" style="margin:100px 100px 100px 100px;">
             <tr>
