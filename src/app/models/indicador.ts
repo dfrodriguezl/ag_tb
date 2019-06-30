@@ -10,4 +10,6 @@ url_hoja_metodologica;
 periodo;
 siglas;
 region;
+id_uer;
+descripcion;
 }

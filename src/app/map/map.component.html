@@ -19,11 +19,19 @@
   <!-- <p-selectButton  [(ngModel)]="indicadores" name="Map"></p-selectButton> -->
     <p-table #dt [value]="indicadores" [resizableColumns]="true" [globalFilterFields]="['region']">
         <ng-template pTemplate="caption">
-            Región:  <select name="region" id="region_" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto" class="ng-tns-c2-0 ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix"> 
-              </select>
+            Región:  <select  name="region" id="region_" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto" class="ng-tns-c2-0 ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix"> 
+             
+            </select>
+              Departamento:  <select name="departamento" id="departamento_" (change)="getDepto($event);UpdateMcipios($event);" style="width:auto" class="ng-tns-c2-0 ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix"> 
+                <option value="TODOS">TODOS</option>              
+            </select>
+
+            Municipio:  <select name="municipio" id="municipio_" (change)="getMcipio($event);" style="width:auto" class="ng-tns-c2-0 ui-dropdown ui-widget ui-state-default ui-corner-all ui-helper-clearfix"> 
+              <option value="TODOS">TODOS</option>
+            </select>
             <!-- <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'equals')" style="width:auto"> -->
         </ng-template>
-      
+
         <ng-template pTemplate="header" style="margin:100px 100px 100px 100px;">
             <tr>
                 <th class="header" pResizableColumn style="width: 5%;">SIGLA</th>
